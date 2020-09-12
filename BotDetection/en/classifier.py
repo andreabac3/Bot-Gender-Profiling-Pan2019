@@ -2,9 +2,27 @@
 
 
 from sklearn.svm import SVC
+from sklearn.calibration import CalibratedClassifierCV
+
 from tensorflow.python.keras import Sequential
 from tensorflow.python.keras.layers import *
 
+
+def adaboost(clf):
+    from sklearn.ensemble import AdaBoostClassifier
+    return AdaBoostClassifier(clf, n_estimators=30, algorithm='SAMME.R', random_state=0, learning_rate=65)
+
+
+def voting_ensamble_model(features_train, labels_train):
+    from sklearn.ensemble import VotingClassifier
+    from sklearn.ensemble import AdaBoostClassifier
+    SVM = SVC(kernel='rbf', probability=True, random_state=0)
+    votingCLF = VotingClassifier(estimators=[('SV', SVC(kernel='rbf', probability=True, random_state=0, gamma='auto')), ('ADA', AdaBoostClassifier(SVM, n_estimators=30, algorithm='SAMME.R', random_state=0, learning_rate=65))],
+                                 voting='soft',
+                                 weights=[1, 1], n_jobs=-1)
+    votingCLF = CalibratedClassifierCV(votingCLF)
+    votingCLF.fit(features_train, labels_train)
+    return votingCLF
 
 
 def SVM():

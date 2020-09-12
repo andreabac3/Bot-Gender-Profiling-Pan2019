@@ -1,6 +1,5 @@
 .idea
 *.xml
-dataset
 __pycache__
 *.vec
 *.zip
