@@ -5,5 +5,6 @@ from sklearn.svm import SVC
 
 
 def SupportVectorMachine():
-    clf = SVC(kernel='rbf',probability=True, C=12000)
+    clf = SVC(kernel='rbf', probability=True, C=12000)
     return clf
+
