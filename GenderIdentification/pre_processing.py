@@ -10,8 +10,6 @@ import spacy
 def buildDataset(filename, language, path, type='Bot'):
     nlp = None
     if language == "spanish":
-        print("faccio lemma")
-        #nlp = es_core_news_sm.load()
         spacy.prefer_gpu()
         nlp = spacy.load("en_core_web_sm")
         nlp.disable_pipes(["tagger", "parser", "ner"])
