@@ -1,4 +1,4 @@
-# Bot-and-Gender-Detection-of-Twitter-Accounts
+# Bot and Gender Detection of Twitter Accounts Using Distortion and LSA
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![License: GPL v3](https://img.shields.io/badge/-Sapienza%20University%20of%20Rome-red)](https://www.gnu.org/licenses/gpl-3.0)
 # Citation 
